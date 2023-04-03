@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+
 import env
 
 CLOUDINARY_STORAGE = {
@@ -109,14 +110,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
-else:
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://.*\.gitpod\.io$",
-    ]
+CORS_ALLOWED_ORIGINS = [
+    os.environ.get('CLIENT_ORIGIN')
+]
 
 CORS_ALLOW_CREDENTIALS = True
 
