@@ -14,7 +14,8 @@ from pathlib import Path
 import os
 import dj_database_url
 
-import env
+if os.path.exists('env.py'):
+    import env
 
 CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
